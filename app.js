@@ -4,7 +4,7 @@ const route=require('./Router/route')
 const cors=require('cors')
 
 const app=express();
-const port=7001;
+const port=process.env.PORT||80;
 const host="localhost"
 const db_url="mongodb+srv://root:root@cluster0.txeud.mongodb.net/Zomato_db?retryWrites=true&w=majority"
 
