@@ -21,7 +21,7 @@ app.use(express.json());
 mongoose.connect(db_url).then(
     (result)=>{
        
-        app.listen(port,host,()=>{
+        app.listen(port,()=>{
             console.log(`Server started with db connection on port no${port}`)
         })
     }
