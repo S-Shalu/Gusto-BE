@@ -18,6 +18,7 @@ mongoose.connect(db_url).then(
 )
 
 app.use(cors());
+app.options('*', cors());
 
 
 app.use(express.json());
