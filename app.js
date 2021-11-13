@@ -8,6 +8,16 @@ const port=7001;
 const host="localhost"
 const db_url="mongodb+srv://root:root@cluster0.txeud.mongodb.net/Zomato_db?retryWrites=true&w=majority"
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+})
+app.use(cors());
+app.options('*', cors());
+app.use(express.json());
+
 mongoose.connect(db_url).then(
     (result)=>{
        
@@ -17,9 +27,8 @@ mongoose.connect(db_url).then(
     }
 )
 
-app.use(cors());
-app.options('*', cors());
 
 
-app.use(express.json());
+
+
 app.use("/",route)
